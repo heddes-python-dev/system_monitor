@@ -55,7 +55,7 @@ python3 -m pip install psutil
 Aus dem Projektverzeichnis:
 
 ```bash
-cd /home/dell/Schreibtisch/system_monitor
+cd .../system_monitor
 python3 main.py
 ```
 
