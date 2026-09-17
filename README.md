@@ -52,12 +52,26 @@ python3 -m pip install psutil
 
 ## Start
 
-Aus dem Projektverzeichnis:
+Linux und Windows mit Python:
 
 ```bash
 cd .../system_monitor
 python3 main.py
 ```
+
+Unter Windows kann alternativ `python main.py` verwendet werden. Als eigenstaendige Anwendung:
+
+- Linux: `dist/main`
+- Windows: `dist/main.exe`
+
+Der Build muss auf dem jeweiligen Zielsystem erfolgen:
+
+```bash
+python3 -m pip install pyinstaller
+python3 -m PyInstaller --clean --noconfirm main.spec
+```
+
+Unter Windows PowerShell lauten die entsprechenden Befehle `python -m pip install pyinstaller` und `python -m PyInstaller --clean --noconfirm main.spec`. Die fertige EXE liegt danach in `dist/`.
 
 Das Fenster kann waehrend der Ueberwachung geoeffnet bleiben oder minimiert werden. Zum Beenden das Fenster schliessen oder den Beenden-Button verwenden.
 
@@ -80,6 +94,8 @@ Die CPU-Messung selbst verwendet ein einsekundiges Sampling. Daher dauert ein ko
 ## Logging
 
 Die Anwendung schreibt nach `system_monitor.log`. Die Logdatei wird bei einer Groesse von 1 MB rotiert; bis zu drei Backups bleiben erhalten.
+
+Beim Start als EXE liegt die Logdatei im `dist/`-Verzeichnis neben der Anwendung.
 
 Das Log enthaelt:
 
